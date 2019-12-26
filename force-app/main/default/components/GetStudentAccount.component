@@ -1,0 +1,25 @@
+<apex:component controller="GetStudentAccount" access="global" >
+    <apex:attribute name="contactId" type="Id" description="Id of the Contact" assignTo="{!con}"/>
+    			 
+     <apex:outputText value="{!contactId}"/>
+    <br/><br/><br/>
+    <apex:attribute name="accId" type="Id" description="Id of the Account" assignTo="{!acc}"/>
+      <apex:outputText value="{!accId}"/>
+    Below are all related Contacts of Account - <u> {!accObj.Name} </u>
+    <table style="border: 1px solid black;border-collapse: collapse;">
+        <thead> 
+            <th style="border: 1px solid black"> First Name </th> 
+            <th style="border: 1px solid black" > Last Name </th> 
+        </thead> 
+        <tbody>
+            <apex:repeat value="{!allContact}" var="c" id="conRepeater"> 
+                <tr> 
+                    <td style="border: 1px solid black" > {!c.FirstName} </td>
+                    <td style="border: 1px solid black" > {!c.LastName} </td> 
+                </tr> 
+            </apex:repeat> 
+        </tbody> 
+    </table>
+    Thanks,
+    Vinayak 
+</apex:component>

@@ -1,0 +1,26 @@
+<apex:page controller="MarksRecords" renderas="pdf" >
+ <apex:form >
+  <apex:pageBlock title="Marks List">
+      
+      <table border="1" style="width:100%">
+       
+              <th>Subject Name</th>
+              <th>Marks</th>
+              <th>Pass</th>
+              <th>Grade</th>
+           
+           <apex:pageblockTable value="{!RecordFetching}" var="I">
+                <apex:column value="{!I.Name}"/>
+                <apex:column >
+                    <apex:pageBlockTable value="{!I.Marks__r}" var="E">
+                        <apex:column value="{!E.Subject__r.Name}"/>
+                        <apex:column value="{!E.Semister__c}"/>
+                    </apex:pageBlockTable>
+                </apex:column>
+            </apex:pageblockTable>
+             
+         
+      </table>
+  </apex:pageBlock>
+ </apex:form>
+</apex:page>

@@ -1,0 +1,22 @@
+<aura:component  implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+   <aura:attribute name="recordId" type="String"/>
+    
+	record id is :   {!v.recordId} 
+	
+     <br></br>
+     
+     <aura:attribute name="Leaves_Remaining" type="integer"/>
+    Leaves Remaining = {!v.Leaves_Remaining}
+    
+     <br></br>
+     
+     <aura:attribute name="Leaves_used" type="integer"/>
+     Leaves used = {!v.Leaves_usd}
+     
+       <!-- <aura:handler name="init" value="{!this}" action="{!c.init}" />	
+    Lightning Component received Account Name - {!v.accountName}  -->  
+     
+     
+     
+     
+</aura:component>

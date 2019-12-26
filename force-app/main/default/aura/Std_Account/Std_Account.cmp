@@ -1,0 +1,88 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:appHostable" access="global" controller="AccountController" >
+	<aura:attribute name="val1" type="String" />
+            <aura:handler event="c:secondEvent"  action="{!c.invoke}"/>
+            <div class="box">
+                Name for Std_Account is : {!v.val1}
+            </div>
+    
+  <!--  <lightning:input aura:id="body"
+                       label=""
+                       name="Body"
+                       placeholder="Enter message..."
+                       value="{!v.val1}"
+                       onchange="{!c.itemsChange}"/>  -->
+    
+    <aura:handler name="change" value="{!v.val1}" action="{!c.getContactsList}"/> 
+    
+  	  <aura:attribute name="id_of_cont" type="String"/> 
+    
+     <aura:attribute name="recordId" type="String" default="0012v00002Jtid7AAB" />
+     
+    <aura:attribute name="acc" type="Account" />
+    
+        
+         
+        <p class="slds-p-horizontal_small">
+            	<br /> ID	 {!v.acc.Id}
+      			<br /> Name {!v.acc.Name}
+                <br /> Phone {!v.acc.Phone}
+                <br /> Email {!v.acc.Student_Email__c}
+            
+             
+        </p>
+         
+       <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="true" />
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner />
+    </aura:if>
+    <aura:if isTrue="{!!v.saved}">
+        <lightning:recordEditForm
+                                  onload="{!c.handleLoad}"
+                                  onsubmit="{!c.handleSubmit}"
+                                  onsuccess="{!c.handleSuccess}"
+                                  recordId="{!v.acc.Id}"
+                                  objectApiName="Account">
+            <!-- the messages component is for error messages -->
+            <lightning:messages />
+            
+            <lightning:inputField fieldName="Name" />
+            <lightning:inputField fieldName="Student_Email__c" />
+            <lightning:inputField fieldName="Student_Id__c" />
+            <lightning:inputField fieldName="Transport__c" />
+            <lightning:inputField fieldName="Phone" />
+            <lightning:inputField fieldName="Hostel_Facitly__c" />
+            <lightning:inputField fieldName="Scholarship__c" />
+            <lightning:inputField fieldName="Fees_Due__c" />
+                    
+            <div class="slds-m-top_medium">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+            </div>
+        </lightning:recordEditForm>
+        <aura:set attribute="else">
+            
+            
+            <lightning:recordViewForm recordId="{!v.acc.Id}" objectApiName="Account">
+                <div class="slds-box">
+                    <lightning:outputfield fieldName="Name" />
+                    <lightning:outputfield fieldName="Active__c" />
+                    <lightning:outputfield fieldName="Fees_Due__c" />
+                    <lightning:outputfield fieldName="Student_Email__c" />
+                    <lightning:outputfield fieldName="Phone" />
+                    <lightning:outputfield fieldName="Student_Id__c" />
+                    <lightning:outputfield fieldName="Transport__c" />
+                    <lightning:outputfield fieldName="Hostel_Facitly__c" />
+                      <lightning:outputfield fieldName="Scholarship__c" />
+                 
+                </div>
+                <p> Record Saved!</p>
+            </lightning:recordViewForm>
+            
+        </aura:set>
+    </aura:if>
+      
+  
+
+    
+</aura:component>

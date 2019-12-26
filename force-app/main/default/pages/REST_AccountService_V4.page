@@ -1,0 +1,42 @@
+<apex:page controller="REST_AccountService_V4">
+    <apex:form >
+        <apex:pageBlock title="OAUTH PASSWORD" id="one">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Request TOkent" action="{!send}" rerender="one"/>
+                 <apex:commandButton value="Request Data" action="{!invoke}" rerender="one"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="client Id" > 
+                                <apex:inputtext value="{!clientId}" size="100"></apex:inputtext>
+                            </apex:outputLabel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            
+                            <apex:outputLabel value="clientSecret"> 
+                                <apex:inputtext value="{!clientSecret}" size="100"></apex:inputtext>
+                            </apex:outputLabel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="username"> 
+                                <apex:inputtext value="{!username}"  size="100"></apex:inputtext>
+                            </apex:outputLabel>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="password"> 
+                                <apex:inputtext value="{!password}"  size="100"></apex:inputtext>
+                            </apex:outputLabel>
+                        </apex:pageBlockSectionItem>
+                <apex:pageBlockSection >
+               
+                    {!result}
+                </apex:pageBlockSection>
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

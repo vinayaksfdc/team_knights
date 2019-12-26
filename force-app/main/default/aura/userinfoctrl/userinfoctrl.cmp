@@ -1,0 +1,84 @@
+<aura:component controller="userinfoctrl" implements="forceCommunity:availableForAllPageTypes" access="global" >
+ 
+    <aura:attribute name="currentUserName" type="string"/>
+    
+    
+ <p><span class="slds-badge">LogIn User :<b>{!v.currentUserName}</b></span></p>
+ 
+     <aura:handler name="init" value="this" action="{!c.doInit}"/>  
+     <aura:attribute name="userInfo" type="user"/>
+     nme in Shw1 is   helloo:   &nbsp;&nbsp;&nbsp;   
+ 
+    <lightning:input aura:id="body"
+                       label=""
+                       name="Body"
+                       placeholder="Enter message..."
+                       value="{!v.userInfo.Name}"
+                       onchange="{!c.itemsChange}"/>
+   
+    <aura:handler name="change" value="{!v.userInfo.Name}" action="{!c.itemsChange}"/> 
+    <!-- Accid {!v.Accid} -->
+    <aura:attribute name="recordId" type="String"/> 
+    id_of_cont is{!v.recordId} 
+    
+    
+    <!--	<p>Name : <lightning:outputText value="{!v.userInfo.Name}" onchange="{!c.invoke}" /></p>  // -->
+   <!-- <lightning:input type="text" value="{!v.userInfo.Name}" name="inputText" label="Input" onchange="{!c.invoke}"/> -->
+     
+    
+    
+    
+    <!-- <lightning:input type="text" value="test" name="inputText" label="Input" onchange="{!c.sayHello}"/>  -->
+    
+    
+    <!--	
+<aura:handler name="firstCall" event="c:firstEvent" action="{!c.show}"/>
+    <aura:handler name="init" value="this" action="{!c.show}"/> 
+  -->
+    
+    
+    
+    
+    <!--<aura:attribute name="empid" type="String" />
+
+    <lightning:button label="change" onclick="{!c.call}" />
+
+         <aura:registerEvent name="{!v.userInfo.Name}" type="c:firstEvent" />
+ 
+        
+ 
+    ID of contact record    <ui:outputText value="{!v.empid}" />
+        <br/>
+       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ <aura:attribute name="contid" type="string"/> 
+    <aura:handler name="init" value="this" action="{!c.doInit1}"/>
+        <p>Id : {!v.contid}</p>
+
+     <aura:attribute name="contacts" type="Contact[]"/>
+     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+     <ul>
+         <aura:iteration items="{!v.contacts}" var="contact">
+             <li>
+                 <a href="{! '#/sObject/' + contact.Id + '/view'}">
+                     <p>{!contact.Name}</p>
+                     <p>{!contact.Phone}</p>
+                 </a>
+             </li>
+         </aura:iteration>
+     </ul>
+    -->
+    
+</aura:component>

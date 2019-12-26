@@ -1,0 +1,20 @@
+<apex:page controller="InsertDML1">
+    <apex:form >
+        <apex:pageblock >
+            <apex:commandButton value="save" action="{!create}"/>
+            <apex:pageblocksection Title="account">
+                <apex:inputfield value="{!acc.name}"/>
+                <apex:inputfield value="{!acc.phone}"/>
+                <apex:inputfield value="{!acc.Industry}"/>
+                <apex:inputfield value="{!acc.ownership}"/>
+                <apex:inputfield value="{!acc.rating}"/>
+            </apex:pageblocksection>
+            <apex:pageblocksection Title="Contact">
+                <apex:inputfield value="{!con.Lastname}"/>
+                <apex:inputfield value="{!con.phone}"/>
+                <apex:inputfield value="{!con.firstname}"/>
+                <apex:inputfield value="{!con.MobilePhone}"/>
+            </apex:pageblocksection>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

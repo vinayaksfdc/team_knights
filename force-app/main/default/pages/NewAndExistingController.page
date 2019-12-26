@@ -1,0 +1,24 @@
+<apex:page controller="NewAndExistingController">
+	<apex:form >
+	<apex:pageBlock title="Collage Details">
+         <apex:pageMessages />
+
+		<apex:pageblockSection title="Collage Information">
+			<apex:inputField value="{!coll.Name}"/>
+			<apex:inputField value="{!coll.course__c}"/>
+            <apex:inputField value="{!coll.hindi__c}"/>
+            <apex:inputField value="{!coll.english__c}"/>
+			<apex:inputField value="{!coll.maths__c}"/>
+			<apex:inputField value="{!coll.science__c}"/>
+            <apex:inputField value="{!coll.social__c}"/>
+       	    
+		</apex:pageblockSection>
+		<apex:pageBlockButtons >
+			<apex:commandButton value="Save Collage" action="{!save}"  />
+            <apex:outputText value="{!coll.id}"></apex:outputText><br/><br/>
+			
+            <apex:outputText >Record created Success fully "{!coll.id}"</apex:outputText> 
+		</apex:pageBlockButtons>
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>

@@ -1,0 +1,10 @@
+<aura:component  implements="flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" controller="Account_with_contacts" access="global" >
+	>
+	 <div class="box">
+         <c:HelloNameAura/> 
+         <!--    <c:RecordViewFormDemo />   -->
+             <c:Account_with_contact /> 
+              <c:Marks />    
+         <c:std_marks></c:std_marks>
+            </div>
+</aura:component>

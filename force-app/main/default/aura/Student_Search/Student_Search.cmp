@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" 
+                controller="Student_Search"
+                access="global" >
+     <aura:attribute name="StdList" type="Account[]"/>
+    
+   <aura:registerEvent name="CompEvent" type="c:CompEvent"/> 
+		<div class="slds-p-around_small">		 
+    	 <lightning:input  name="inline-search-input"
+        label="Student_Search"
+        type="search"
+        variant="label-hidden"
+        aura:id="searchInput"  
+        onchange="{!c.doSearch}"               
+    />
+    
+     </div>
+    <div>
+         <!--<c:StdListComponent recordList="{!v.beerList}"></c:StdListComponent> -->
+       
+    </div>
+</aura:component>

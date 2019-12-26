@@ -1,0 +1,73 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+ 
+       <!-- <aura:attribute name="Leaves__c" type="object" />
+    <aura:attribute name="Total_leaves__c" type="integer" default="cmp.find('select').get('v.value')" />
+    <aura:attribute name="Leave_Type__c" type="list" default="null" /> -->
+    
+    <aura:attribute name="Selected_option" type="String" />
+  
+    Total Leaves <div class="slds-box slds-box_xx-small">
+  				 <p>&nbsp;&nbsp;&nbsp;&nbsp;{!v.Selected_option}</p>
+				 </div> 
+    
+    <br></br>  
+    
+    <lightning:select aura:id="select" name="option" label="Select a Leave" onchange="{! c.onChange }">
+        <option value="">choose one...</option>
+        <option value="4">Casual Leave</option>
+        <option value="2">Sick Leave</option>
+        <option value="2">Emergency Leave</option>
+        <option value="2">Extra/special Leave</option>
+    </lightning:select>  
+    
+    <br></br>
+    
+    <aura:attribute name="Total_Leaves" type="integer" default="{!v.Selected_option}"  />
+     
+    <aura:handler name="change" value="{!v.Selected_option}" action="{!c.sub}"/> 
+    
+    <aura:attribute name="Leaves_usd" type="integer" default="{!v.NoofDays}" />
+      	    
+    Leaves Used <div class="slds-box slds-box_xx-small">
+                     <p> {!v.Leaves_usd} </p>
+    				 </div> 
+    
+    <aura:attribute name="Leaves_Remaining" type="integer"  />
+    
+    Leaves Remaining <div class="slds-box slds-box_xx-small">
+                     <p> {!v.Leaves_Remaining} </p>
+    				 </div> 
+   
+    
+     <br></br>
+    
+    <!-- from date -->
+    
+    <aura:attribute name="todate" type="Date" access="GLOBAL"/>
+ 
+    <ui:inputDate aura:id="dateValue1" class="hideinput" label="Leave to"  change="{!c.toChange}" value="{!v.todate}" displayDatePicker="true"/>
+    {!v.todate}
+      
+	 <br></br>  <br></br> 
+    
+    <!-- to date -->	
+	
+    <aura:attribute name="fromdate" type="Date" access="GLOBAL"/>
+   	<ui:inputDate aura:id="dateValue" class="hideinput" label="Leave from"  change="{!c.fromChange}" value="{!v.fromdate}" displayDatePicker="true"/>
+    
+  	To Date &nbsp;&nbsp;&nbsp;&nbsp; {!v.fromdate}
+    
+    <!-- value="{!v.todate}" 
+	value="{!v.fromdate}" -->
+    
+    <br></br>  <br></br> 
+    
+      <aura:attribute name="NoofDays" type="String"  />
+   No Of Days <div class="slds-box slds-box_xx-small">
+                     <p> {!v.NoofDays} </p>
+    				 </div>  
+    
+    
+    
+    
+</aura:component>

@@ -1,0 +1,83 @@
+<aura:component controller="chkbox_example" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global" >
+    <!--  record id is :   {!v.recordId} 
+  fetching record id-->
+    
+    
+    <aura:handler name="init" value="this" action="{!c.doInit}"/>  
+    <!-- attribute nme is : a032v00001rW2AlAAK setting id from javasript>
+    <aura:attribute name="nme" type="String" />
+    attribute nme is : {!v.nme} -->
+    
+     <aura:attribute name="tot_fee" type="Integer" />
+    <aura:attribute name="studentrec" type="Fees__c" />
+    <br/>
+    <!--- value of transport__c  from Account
+ op: {!v.studentrec.Student_Name__r.Transport__c}i.e true 
+
+  <br/>
+    -->
+     
+    
+    Transport__c nme is : {!v.studentrec.Student_Name__r.Transport__c}
+    Hostel__c nme is : {!v.studentrec.Student_Name__r.Hostel__c}
+         
+    <lightning:recordViewForm recordId="{!v.recordId}" objectApiName="Fees__c">
+        <!-- Using lightning:card tag with a title -->
+        <lightning:card title="Student Details">
+            <!-- lightning:card body section starts -->
+            <p class="slds-p-horizontal_small">
+                <!-- Forming a grid of two equal columns -->
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2">
+                        <!-- 
+                            Using lightning:outputField Tag with fieldName = Api name of field,
+                            if you are using a custom field, do check you have __c in the api name
+                         -->
+                        <lightning:outputField fieldName="Name" /> 
+                         <aura:if isTrue="{!and(v.studentrec.Student_Name__r.Hostel__c,
+                                         v.studentrec.Student_Name__r.Scholarship__c,
+                                         v.studentrec.Student_Name__r.Transport__c
+                                         )}">
+                            <div style="background-color:green">
+                                 <lightning:outputField fieldName="Yearly_Due__c" />
+                                  <lightning:outputField fieldName="Transport__c" /> 
+                                  <lightning:outputField fieldName="Hostel__c" /> 
+                                  <lightning:outputField fieldName="Scholarship__c" /> 
+                                  <lightning:outputField fieldName="Total_Fees__c" /> 
+                                
+                                Total Fees to be paid 
+                           	   
+                            </div>
+                        </aura:if>
+                        
+                        <div style="background-color:LightBlue">
+                                <lightning:outputField fieldName="Total_Fees__c" /> 
+                                
+                            </div>
+                        <div style="background-color:LightBlue">
+                                <lightning:outputField fieldName="Yearly_Due__c" /> 
+                                
+                            </div>
+                          <div style="background-color:LightBlue">
+                                <lightning:outputField fieldName="Total_Fees__c" /> 
+                             </div>
+                        
+                      
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning:inputField fieldName="Scholarship__c" /> 
+                        <lightning:inputField fieldName="Transport__c" />    
+                        <lightning:inputField fieldName="Hostel__c" />
+                        
+                    </div>
+                      <!---  
+					<aura:if  isTrue="{! !and(v.ValueOneisTrue, v.ValuethreeisTrue)}" > 
+					 --> 
+                       
+                      <!---   -->
+                </div>
+            </p>
+        </lightning:card>        
+    </lightning:recordViewForm>
+    
+</aura:component>

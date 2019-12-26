@@ -1,0 +1,53 @@
+<!-- <aura:component controller="Datetestcls" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:actionOverride,forceCommunity:availableForAllPageTypes" 
+                access="global" >
+    
+   <aura:attribute name="contactObj" type="Leaves__c" default="{'sobjecttype':'Leaves__c',
+                                                              'Leave_From__c':'',
+                                                              'Leave_To__c':'',
+                                                              'Phone':''
+                                                              }" />
+    <aura:attribute name="contactId" type="string" />
+      <lightning:input type="date" name="From date" label="Date field with a predefined value" value="{!v.contactObj.Leave_From__c}"/> 
+    <ui:inputDate aura:id="dateValue" class="hideinput" label="Leave to"  change="{!c.toChange}" value="{!v.contactObj.Leave_To__c}" displayDatePicker="true"/>
+  	{!v.contactObj.Leave_To__c}
+    
+      <lightning:input type="date" name="To date" label="Date field with a predefined value" value="{!v.contactObj.Leave_To__c}" /> 
+    
+    
+    <ui:inputDate aura:id="dateValue1" class="hideinput" label="Leave from"  change="{!c.fromChange}" value="{!v.contactObj.Leave_From__c}" displayDatePicker="true"/>
+    {!v.contactObj.Leave_From__c}
+    
+    <br></br>
+    
+    <aura:attribute name="NoofDays" type="String"  />
+   NoofDays &nbsp;&nbsp;&nbsp;&nbsp; {!v.NoofDays}
+    
+    <br></br>
+    
+    RecordId is created {!v.contactId}
+    <lightning:button label="Submit"   onclick="{! c.handleClick }"/>
+</aura:component>  -->
+
+
+
+
+
+
+<aura:component controller="elfL1" implements="forceCommunity:availableForAllPageTypes">
+    <aura:handler name="init" value="{!this}" action="{!c.init}"/>
+    <aura:attribute name="Leaves"  type="Leaves__c" />
+    <h1>Test</h1>
+    <form>
+        <ui:inputText aura:id="client"
+            label="{!$ObjectType.Leaves__c.fields.Name.Label}"
+            class="form-control"
+            value="{!v.Leaves__c.Name}"
+            placeholder="test"
+        />
+        <br />
+        <ui:button class="form-control" aura:id="button" label="Save" press="{!c.save}"/>
+        <br />  
+    <br />
+    </form>
+</aura:component>

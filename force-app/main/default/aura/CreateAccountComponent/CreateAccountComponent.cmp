@@ -1,0 +1,16 @@
+<aura:component controller="CreateAccount" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:actionOverride,forceCommunity:availableForAllPageTypes" 
+                access="global" >
+    
+    <aura:attribute name="contactObj" type="contact" default="{'sobjecttype':'contact',
+                                                              'FirstName':'',
+                                                              'LastName':'',
+                                                              'Phone':''
+                                                              }" />
+    <aura:attribute name="contactId" type="string" />
+    <lightning:input value="{!v.contactObj.FirstName}" label="First name" placeholder="enter fist name.."/>
+    <lightning:input value="{!v.contactObj.LastName}" label= "lastname" placeholder= "enter last name.."/>
+    <lightning:input value="{!v.contactObj.Phone}" label="phone" placeholder="enter phone.."/>
+    	 RecordId is created {!v.contactId}
+    <lightning:button label="Submit"   onclick="{! c.handleClick }"/>
+</aura:component>

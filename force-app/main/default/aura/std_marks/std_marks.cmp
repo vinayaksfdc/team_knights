@@ -1,0 +1,60 @@
+<aura:component controller="std_marks" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes" access="global" >
+	 		 <aura:attribute name="val1"  type="String" />
+            <aura:handler event="c:secondEvent"  action="{!c.invoke}"/>
+            <div class="box">
+                Name for Marks 3 is :{!v.val1}   <lightning:input aura:id="abc" value="{!v.val1}" />
+               
+               
+                <ui:inputText label="Last Name" value="{!v.val1}" updateOn="doInit"/>
+            </div>
+  
+    
+     <aura:attribute name="currentUserName" type="string"/>
+ <p><span class="slds-badge">LogIn User :<b>{!v.currentUserName}</b></span></p>
+    
+    <aura:attribute name="recordId" type="String"/>
+    
+   <!-- record id is :   {!v.recordId} -->
+    
+  <!--  <aura:handler name="init" value="this" action="{!c.doInit}"/> -->
+    
+    
+    
+    
+    <aura:attribute name="ListOfAccount" type="Account[]" description="store accounts with there child contacts"/>
+    Account List {!v.ListOfAccount}
+    <ul>
+        <aura:iteration items="{!v.ListOfAccount}" var="acc">
+            
+            <li type="dice">AccountName : {!acc.Name}</li>
+            <ul>
+                <aura:iteration items="{!acc.Marks__r}" var="mrk" indexVar="index">
+                   <li>  {!mrk.Subject__r.Name} &nbsp;&nbsp;&nbsp;&nbsp; {!mrk.Name}
+                        &nbsp;&nbsp;&nbsp;&nbsp; {!mrk.Semister__c}
+                    </li>  
+                </aura:iteration>
+           
+            </ul>
+            <hr/>
+        </aura:iteration>
+    </ul>
+     <aura:handler name="init" value="this" action="{!c.doInit1}"/> 
+    <aura:attribute name="ListOfSem2" type="Account[]" description="store accounts with there child contacts"/>
+    <ul>
+        <aura:iteration items="{!v.ListOfSem2}" var="acc">
+            
+            <li type="dice">AccountName : {!acc.Name}</li>
+            <ul>
+                <aura:iteration items="{!acc.Marks__r}" var="mrk" indexVar="index">
+                   <li>  {!mrk.Subject__r.Name} &nbsp;&nbsp;&nbsp;&nbsp; {!mrk.Name}
+                        &nbsp;&nbsp;&nbsp;&nbsp; {!mrk.Semister__c}
+                    </li>  
+                </aura:iteration>
+           
+            </ul>
+            <hr/>
+        </aura:iteration>
+    </ul>
+    
+ 
+</aura:component>

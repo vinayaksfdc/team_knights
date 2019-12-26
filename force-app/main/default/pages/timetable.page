@@ -1,0 +1,38 @@
+<apex:page controller="Timetable" applyHtmlTag="true"
+applyBodyTag="true">
+    
+    <apex:form >
+        <apex:pageblock Title="Account">
+            <apex:pageblocktable Value="{!acc}" var="a">
+                
+              <table style="width:100%;border:1 px; height:200px" >
+                    <tr>
+                        <th>name:</th>
+                        <apex:repeat value="{!acc}" var="ct">
+                            <td><apex:outputtext value="{!ct.name}"/></td>
+                        </apex:repeat>
+                    </tr>
+                </table>
+                
+                <!--  
+    <tr>
+                    <td><apex:column value="{!a.name}" headervalue="Name"/></td>
+                    
+                </tr>
+              
+<tr>
+<td><apex:column value="{!a.name}" headervalue="Name"/></td>
+<!-- <th> <apex:column value="{!a.phone}" headervalue="phone"/></th>
+<th><apex:column value="{!a.industry}" headervalue="industry"/></th>
+<th>  <apex:column value="{!a.rating}" headervalue="rating" /></th> 
+</tr>
+-->
+                
+                
+                
+                
+                
+            </apex:pageblocktable>
+        </apex:pageblock>
+    </apex:form>
+</apex:page>

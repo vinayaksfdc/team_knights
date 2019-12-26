@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" controller="Fees"   access="global" >
+    <!-- 
+        Using lightning:recordViewForm tag record Id and objectApiName is required to fetch record.
+        For custom objects, do check you have __c in the api name
+     -->
+    record id is :   {!v.recordId}
+    <aura:handler name="init" value="this" action="{!c.doInit}"/>  
+    
+    <aura:attribute name="nme" type="String" />
+    attribute nme is : {!v.nme}
+    
+    <aura:attribute name="abc" type="String" />
+    attribute nme is : {!v.abc.Hostel_Facitly__c}
+    
+    <aura:if isTrue="{!v.abc.Hostel_Facitly__c}">
+        <div style="background-color:LightBlue">
+            This should be displayed as variable1 is true
+        </div>
+    </aura:if>
+    
+    attribute nme is : {!v.abc.Scholarship__c}
+    
+    <aura:if isTrue="{!v.abc.Scholarship__c}">
+        <div style="background-color:LightBlue">
+           <lightning:input></lightning:input>
+            This should be displayed as variable1 is true
+        </div>
+    </aura:if>
+</aura:component>
